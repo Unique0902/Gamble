@@ -55,11 +55,3 @@ export async function getUserData(uid) {
     return null;
   });
 }
-
-export async function updateUserData(userId, userData) {
-  return set(ref(database, `users/${userId}`), userData);
-}
-
-export async function removeUserData(userId) {
-  return remove(ref(database, `users/${userId}`));
-}

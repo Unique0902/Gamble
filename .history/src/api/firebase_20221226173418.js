@@ -40,26 +40,9 @@ export function onUserStateChange(callback) {
   });
 }
 
-export async function makeNewUser(uid, name) {
-  return set(ref(database, `users/${uid}`), {
+export async function makeNewUSer(uid, name) {
+  return set(ref(database, `user/${uid}`), {
     money: BASIC_MONEY,
     name,
   });
-}
-
-export async function getUserData(uid) {
-  return get(ref(database, `users/${uid}`)).then((snapshot) => {
-    if (snapshot.exists()) {
-      return snapshot;
-    }
-    return null;
-  });
-}
-
-export async function updateUserData(userId, userData) {
-  return set(ref(database, `users/${userId}`), userData);
-}
-
-export async function removeUserData(userId) {
-  return remove(ref(database, `users/${userId}`));
 }
