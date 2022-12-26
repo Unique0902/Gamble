@@ -7,6 +7,7 @@ import Gamble from './pages/gamble 1/gamble';
 import Home from './pages/home/home';
 import NotFound from './pages/notFound/notFound';
 import ProtectedRoute from './pages/ProtectedRoute';
+import { UserDataContextProvider } from './context/UserDataContext';
 
 const router = createBrowserRouter([
   {
@@ -18,9 +19,11 @@ const router = createBrowserRouter([
       {
         path: '/gamble',
         element: (
-          <ProtectedRoute>
-            <Gamble />
-          </ProtectedRoute>
+          <UserDataContextProvider>
+            <ProtectedRoute>
+              <Gamble />
+            </ProtectedRoute>
+          </UserDataContextProvider>
         ),
       },
     ],
