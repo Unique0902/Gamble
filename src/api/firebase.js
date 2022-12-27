@@ -51,7 +51,7 @@ export async function makeNewUser(uid, name) {
 export async function getUserData(uid) {
   return get(ref(database, `users/${uid}`)).then((snapshot) => {
     if (snapshot.exists()) {
-      return snapshot;
+      return snapshot.val();
     }
     return null;
   });

@@ -39,6 +39,7 @@ export function UserDataContextProvider({ children }) {
         removeUserData: removeUser,
         updateUserData: updateUser,
         makeUserData,
+        money: userData && userData.money,
       }}
     >
       {children}
