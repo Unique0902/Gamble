@@ -2,10 +2,6 @@ import React from 'react';
 import DesignWrapper from '../../components/designWrapper/designWrapper';
 import { useAuthContext } from '../../context/AuthContext';
 import styles from './gambles.module.css';
-import snailImg from '../../imgs/snail.png';
-import snifflingImg from '../../imgs/sniffling.jpg';
-import graphImg from '../../imgs/graph.png';
-import rouletteImg from '../../imgs/roulette.jpg';
 import Game from '../../components/game/game';
 import { useUserDataContext } from '../../context/UserDataContext';
 
@@ -26,10 +22,10 @@ export default function Gambles() {
           </button>
         </nav>
         <ul className={styles.games}>
-          <Game img={snailImg} text={'달팽이 게임'} />
-          <Game img={snifflingImg} text={'홀짝'} />
-          <Game img={graphImg} text={'그래프 게임'} />
-          <Game img={rouletteImg} text={'룰렛 게임'} />
+          <Game img={'snail'} text={'달팽이 게임'} />
+          <Game img={'sniffling'} text={'홀짝'} />
+          <Game img={'graph'} text={'그래프 게임'} />
+          <Game img={'roulette'} text={'룰렛 게임'} />
         </ul>
       </section>
     </DesignWrapper>
