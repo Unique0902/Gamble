@@ -1,0 +1,30 @@
+.titleSec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  height: 100vh;
+}
+.title {
+  font-weight: bold;
+  font-size: 8rem;
+}
+.subTitle {
+  font-weight: 600;
+  font-size: 2rem;
+}
+.btn {
+  border-radius: 3rem;
+  padding: 0.5em 1em;
+  background-color: gray;
+  color: white;
+  margin-top: 1em;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: all 150ms ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
