@@ -9,6 +9,7 @@ import NotFound from './pages/notFound/notFound';
 import ProtectedRoute from './pages/ProtectedRoute';
 import { UserDataContextProvider } from './context/UserDataContext';
 import Gambles from './pages/gambles/gambles';
+import HomeRoute from './pages/HomeRoute';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,15 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFound />,
     children: [
-      { index: true, path: '/', element: <Home /> },
+      {
+        index: true,
+        path: '/',
+        element: (
+          <HomeRoute>
+            <Home />
+          </HomeRoute>
+        ),
+      },
       {
         path: '/gamble',
         element: (
