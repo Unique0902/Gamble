@@ -9,11 +9,31 @@
 }
 .title {
   font-weight: bold;
-  font-size: 8rem;
+  font-size: 4rem;
 }
-.subTitle {
+
+.form {
+  display: flex;
+  margin-top: 4em;
+}
+
+.input {
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  margin-right: 1em;
+}
+
+.btn {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
   font-weight: 600;
-  font-size: 2rem;
+  transition: all 150ms ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 .icon {

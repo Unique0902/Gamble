@@ -18,16 +18,17 @@ export default function UserMake() {
     <DesignWrapper>
       <section className={styles.titleSec}>
         <h1 className={styles.title}>유저 생성</h1>
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <input
             placeholder='이름 입력..'
             type='text'
             value={name}
             name='name'
             required
+            className={styles.input}
             onChange={handleChange}
           />
-          <button>제출</button>
+          <button className={styles.btn}>제출</button>
         </form>
       </section>
     </DesignWrapper>
