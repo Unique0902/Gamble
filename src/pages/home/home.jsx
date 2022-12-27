@@ -8,7 +8,7 @@ export default function Home() {
     login();
   };
   return (
-    <div className={styles.wrap}>
+    <section>
       <div className='custom-shape-divider-top-1672115957'>
         <svg
           data-name='Layer 1'
@@ -63,6 +63,6 @@ export default function Home() {
           ></path>
         </svg>
       </div>
-    </div>
+    </section>
   );
 }

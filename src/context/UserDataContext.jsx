@@ -17,8 +17,10 @@ export function UserDataContextProvider({ children }) {
     setUserData(userData);
   };
   useEffect(() => {
-    getUserData(uid).then((userData) => setUserData(userData));
-  }, []);
+    if (uid) {
+      getUserData(uid).then((userData) => setUserData(userData));
+    }
+  }, [uid]);
 
   return (
     <UserDataContext.Provider

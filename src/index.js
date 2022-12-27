@@ -10,6 +10,7 @@ import ProtectedRoute from './pages/ProtectedRoute';
 import { UserDataContextProvider } from './context/UserDataContext';
 import Gambles from './pages/gambles/gambles';
 import HomeRoute from './pages/HomeRoute';
+import UserMake from './pages/userMake/userMake';
 
 const router = createBrowserRouter([
   {
@@ -27,12 +28,18 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: '/usermake',
+        element: (
+          <ProtectedRoute isUserMake>
+            <UserMake />
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: '/gamble',
         element: (
           <ProtectedRoute>
-            <UserDataContextProvider>
-              <Gamble />
-            </UserDataContextProvider>
+            <Gamble />
           </ProtectedRoute>
         ),
       },
@@ -40,9 +47,7 @@ const router = createBrowserRouter([
         path: '/gambles',
         element: (
           <ProtectedRoute>
-            <UserDataContextProvider>
-              <Gambles />
-            </UserDataContextProvider>
+            <Gambles />
           </ProtectedRoute>
         ),
       },
