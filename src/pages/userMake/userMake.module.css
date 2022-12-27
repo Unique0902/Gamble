@@ -1,0 +1,22 @@
+.titleSec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  height: 100vh;
+}
+.title {
+  font-weight: bold;
+  font-size: 8rem;
+}
+.subTitle {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.icon {
+  margin-right: 0.2em;
+  font-size: 2rem;
+}

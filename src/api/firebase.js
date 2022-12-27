@@ -44,6 +44,7 @@ export async function makeNewUser(uid, name) {
   return set(ref(database, `users/${uid}`), {
     money: BASIC_MONEY,
     name,
+    uid,
   });
 }
 
