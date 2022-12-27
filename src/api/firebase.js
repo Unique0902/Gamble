@@ -8,7 +8,7 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 
-const BASIC_MONEY = 1000000;
+export const BASIC_MONEY = 1000000;
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDNcN7jGP0dvdhIW1hbJzTAOxuMVPLK-Ss',
