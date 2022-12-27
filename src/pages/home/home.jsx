@@ -31,8 +31,8 @@ export default function Home() {
         <h1 className={styles.title}>Gamble</h1>
         <h2 className={styles.subTitle}>부자되세요 ^^</h2>
         <button className={styles.btn}>
-          <FcGoogle />
-          Google 로그인
+          <FcGoogle className={styles.icon} />
+          Google로 로그인
         </button>
       </section>
       <div class='custom-shape-divider-bottom-1672116618'>
