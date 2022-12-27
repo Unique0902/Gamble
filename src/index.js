@@ -19,11 +19,11 @@ const router = createBrowserRouter([
       {
         path: '/gamble',
         element: (
-          <UserDataContextProvider>
-            <ProtectedRoute>
+          <ProtectedRoute>
+            <UserDataContextProvider>
               <Gamble />
-            </ProtectedRoute>
-          </UserDataContextProvider>
+            </UserDataContextProvider>
+          </ProtectedRoute>
         ),
       },
     ],
