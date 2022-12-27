@@ -8,6 +8,7 @@ import Home from './pages/home/home';
 import NotFound from './pages/notFound/notFound';
 import ProtectedRoute from './pages/ProtectedRoute';
 import { UserDataContextProvider } from './context/UserDataContext';
+import Gambles from './pages/gambles/gambles';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,16 @@ const router = createBrowserRouter([
           <ProtectedRoute>
             <UserDataContextProvider>
               <Gamble />
+            </UserDataContextProvider>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/gambles',
+        element: (
+          <ProtectedRoute>
+            <UserDataContextProvider>
+              <Gambles />
             </UserDataContextProvider>
           </ProtectedRoute>
         ),
