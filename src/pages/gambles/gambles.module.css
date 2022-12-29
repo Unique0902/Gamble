@@ -40,10 +40,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  flex-basis: 30%;
 }
 
 .games {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-basis: 70%;
 }
