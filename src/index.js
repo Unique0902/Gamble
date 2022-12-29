@@ -11,6 +11,10 @@ import Gambles from './pages/gambles/gambles';
 import HomeRoute from './pages/HomeRoute';
 import UserMake from './pages/userMake/userMake';
 import UserMakeRoute from './pages/userMakeRoute';
+import Snail from './pages/gambles/snail/snail';
+import Sniffling from './pages/gambles/sniffling/sniffling';
+import Roulette from './pages/gambles/roulette/roulette';
+import Graph from './pages/gambles/graph/graph';
 
 const router = createBrowserRouter([
   {
@@ -50,8 +54,20 @@ const router = createBrowserRouter([
             element: <Gambles />,
           },
           {
-            path: 'fa',
-            element: <Gambles />,
+            path: 'snail',
+            element: <Snail />,
+          },
+          {
+            path: 'sniffling',
+            element: <Sniffling />,
+          },
+          {
+            path: 'roulette',
+            element: <Roulette />,
+          },
+          {
+            path: 'graph',
+            element: <Graph />,
           },
         ],
       },
