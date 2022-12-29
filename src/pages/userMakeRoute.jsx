@@ -6,7 +6,7 @@ export default function UserMakeRoute({ children }) {
   const { userData } = useUserDataContext();
 
   if (userData) {
-    return <Navigate to='/gambles/' replace />;
+    return <Navigate to='/gamble/' replace />;
   }
 
   return children;

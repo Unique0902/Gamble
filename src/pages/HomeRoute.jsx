@@ -6,7 +6,7 @@ export default function HomeRoute({ children }) {
   const { user } = useAuthContext();
 
   if (user) {
-    return <Navigate to='/gambles/' replace />;
+    return <Navigate to='/gamble/' replace />;
   }
 
   return children;

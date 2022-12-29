@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './app';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Gamble from './pages/gamble 1/gamble';
+import Gamble from './pages/gamble/gamble';
 import Home from './pages/home/home';
 import NotFound from './pages/notFound/notFound';
 import ProtectedRoute from './pages/ProtectedRoute';
@@ -44,14 +44,16 @@ const router = createBrowserRouter([
             <Gamble />
           </ProtectedRoute>
         ),
-      },
-      {
-        path: '/gambles',
-        element: (
-          <ProtectedRoute>
-            <Gambles />
-          </ProtectedRoute>
-        ),
+        children: [
+          {
+            index: true,
+            element: <Gambles />,
+          },
+          {
+            path: 'fa',
+            element: <Gambles />,
+          },
+        ],
       },
     ],
   },
