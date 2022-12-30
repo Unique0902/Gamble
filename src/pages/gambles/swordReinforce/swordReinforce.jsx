@@ -1,16 +1,21 @@
 import React from 'react';
 import { useState } from 'react';
 import styles from './swordReinforce.module.css';
+
+const swordReinforcePriceArr = [
+  500, 1000, 1500, 2000, 3000, 5000, 10000, 18000, 20000, 25000,
+];
+const swordSellPriceArr = [
+  0, 300, 2000, 5000, 10000, 15000, 20000, 40000, 80000, 160000,
+];
 export default function SwordReinforce() {
   const [sword, setSword] = useState({ level: 1, isDestroyed: false });
+  const [money, setMoney] = useState(10000);
   const reinforceSword = (sword) => {
     if (!sword.isDestroyed) {
       if (Math.random() * 100 < 100 - 5 * sword.level) {
-        console.log('붙음');
         return { ...sword, level: sword.level + 1 };
       } else {
-        console.log('터짐');
-        console.log({ ...sword, isDestroyed: true });
         return { ...sword, isDestroyed: true };
       }
     } else {
@@ -18,19 +23,26 @@ export default function SwordReinforce() {
     }
   };
   const handelClick = () => {
-    setSword(reinforceSword(sword));
+    if (money >= swordReinforcePriceArr[sword.level - 1]) {
+      setMoney(money - swordReinforcePriceArr[sword.level - 1]);
+      setSword(reinforceSword(sword));
+    }
   };
   const handleRetry = () => {
     setSword({ level: 1, isDestroyed: false });
   };
   const handleSell = () => {
-    setSword({ level: 1, isDestroyed: false });
+    if (!sword.isDestroyed) {
+      setMoney(money + swordSellPriceArr[sword.level - 1]);
+      setSword({ level: 1, isDestroyed: false });
+    }
   };
   return (
     <section className={styles.wrapper}>
       <section className={styles.inform}>
-        <span className={styles.text}>{`현재: ${sword.level}성`}</span>
-        <span className={styles.text}>{`검이름: 지리는검`}</span>
+        <span className={styles.text}>{`현재: ${sword.level}성 `}</span>
+        <span className={styles.text}>{`검이름: 지리는검 `}</span>
+        <span className={styles.text}>{`소지금액: ${money}원`}</span>
       </section>
       <section className={styles.main}>
         {sword.isDestroyed ? (
@@ -53,8 +65,12 @@ export default function SwordReinforce() {
             </>
           ) : (
             <>
-              <span className={styles.text}>{`강화비용: 10000원`}</span>
-              <span className={styles.text}>{`판매비용: 7000원`}</span>
+              <span className={styles.text}>{`강화비용: ${
+                swordReinforcePriceArr[sword.level - 1]
+              }원`}</span>
+              <span className={styles.text}>{`판매비용: ${
+                swordSellPriceArr[sword.level - 1]
+              }원`}</span>
               <span className={styles.text}>{`강화확률: ${
                 100 - 5 * sword.level
               }%`}</span>
