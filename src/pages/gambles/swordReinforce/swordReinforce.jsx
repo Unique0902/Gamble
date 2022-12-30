@@ -2,12 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './swordReinforce.module.css';
 
-const swordReinforcePriceArr = [
-  500, 1000, 1500, 2000, 3000, 5000, 10000, 18000, 20000, 25000,
-];
-const swordSellPriceArr = [
-  0, 300, 2000, 5000, 10000, 15000, 20000, 40000, 80000, 160000,
-];
+const swordReinforcePriceArr = [];
+const swordSellPriceArr = [0, 0, 0];
+for (let i = 0; i < 20; i++) {
+  swordReinforcePriceArr.push(500 * 2 ** i);
+}
+for (let i = 2; i < 20; i++) {
+  swordSellPriceArr.push(500 * 2 ** (i + 2));
+}
 export default function SwordReinforce() {
   const [sword, setSword] = useState({ level: 1, isDestroyed: false });
   const [money, setMoney] = useState(10000);
