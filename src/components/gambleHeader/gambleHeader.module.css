@@ -1,0 +1,17 @@
+.header {
+  height: 10%;
+  background-color: #b87c4c;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.gamble {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: white;
+}
+.titleText {
+  color: #f9f871;
+  font-weight: bold;
+  font-size: 2rem;
+}
