@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -15,6 +16,26 @@ import Snail from "./pages/gambles/snail/Snail";
 import Sniffling from "./pages/gambles/sniffling/sniffling";
 import Roulette from "./pages/gambles/roulette/roulette";
 import Graph from "./pages/gambles/graph/graph";
+=======
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './app';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Gamble from './pages/gamble/gamble';
+import Home from './pages/home/home';
+import NotFound from './pages/notFound/notFound';
+import ProtectedRoute from './pages/ProtectedRoute';
+import Gambles from './pages/gambles/gambles';
+import HomeRoute from './pages/HomeRoute';
+import UserMake from './pages/userMake/userMake';
+import UserMakeRoute from './pages/userMakeRoute';
+import Snail from './pages/gambles/snail/snail';
+import Sniffling from './pages/gambles/sniffling/sniffling';
+import Roulette from './pages/gambles/roulette/roulette';
+import Graph from './pages/gambles/graph/graph';
+import SwordReinforce from './pages/gambles/swordReinforce/swordReinforce';
+>>>>>>> d109107 (add sword game)
 
 const router = createBrowserRouter([
   {
@@ -68,6 +89,10 @@ const router = createBrowserRouter([
           {
             path: "graph",
             element: <Graph />,
+          },
+          {
+            path: 'swordReinforce',
+            element: <SwordReinforce />,
           },
         ],
       },
