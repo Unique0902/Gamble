@@ -16,11 +16,14 @@ export default function GambleHeader() {
   const selectedStyle = (name) => {
     return name === selectedBtn && styles.selected;
   };
+  if (!selectedBtn) {
+    return <></>;
+  }
   return (
     <header className={styles.header}>
-      <div className={styles.title}>
+      <Link to={'/'} className={styles.title}>
         <span className={styles.titleText}>Gamble</span>
-      </div>
+      </Link>
       <Link to='snail' className={`${styles.gamble} ${selectedStyle('snail')}`}>
         달팽이
       </Link>
