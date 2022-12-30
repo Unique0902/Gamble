@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./SnailImg.module.css";
+import styles from "./snailImg.module.css";
 
 export default function SnailImg({ x, len }) {
   return (

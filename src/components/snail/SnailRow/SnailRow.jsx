@@ -1,14 +1,21 @@
 import React, { useContext } from "react";
-import SnailImg from "../SnailImg/SnailImg";
-import styles from "./SnailRow.module.css";
+import SnailImg from "../snailImg/snailImg";
+import styles from "./snailRow.module.css";
 import { useState, useRef, useEffect } from "react";
-import { WinnerContext } from "../../../context/snail/WinnerContext";
+import { WinnerContext } from "../../../context/snail/winnerContext";
 
 export default function SnailRow({ index }) {
   const [snailX, setSnailX] = useState(0);
   const [snailLenToggle, seetSnailLenToggle] = useState(true);
   const snailXRef = useRef(0);
   const { setWinner } = useContext(WinnerContext);
+
+  const myAudio = new Audio(); // Aduio 객체 생성
+
+  myAudio.src = "public/audio/snail/코트.mp3"; // 음원 파일 설정
+  myAudio.play().catch((e) => {
+    console.log(e);
+  });
 
   const maxDistance = 600;
 
@@ -20,6 +27,7 @@ export default function SnailRow({ index }) {
   useEffect(() => {
     const timer = setInterval(() => {
       const randomDistance = returnRandom(min, max);
+
       snailXRef.current = snailXRef.current + randomDistance;
       setSnailX(snailXRef.current);
       seetSnailLenToggle((prev) => !prev);
@@ -35,7 +43,7 @@ export default function SnailRow({ index }) {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [index, setWinner]);
   return (
     <div className={styles.race}>
       <SnailImg x={snailX} len={snailLenToggle}></SnailImg>

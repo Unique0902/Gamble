@@ -1,6 +1,6 @@
 import React from "react";
-import Container from "../../../components/snail/Container/Container";
-import styles from "./Snail.module.css";
+import Container from "../../../components/snail/container/container";
+import styles from "./snail.module.css";
 
 export default function Snail() {
   return (

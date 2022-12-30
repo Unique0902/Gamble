@@ -1,8 +1,8 @@
 import React from "react";
-import WinnerProvider from "../../../context/snail/WinnerContext";
-import SnailRow from "../SnailRow/SnailRow";
-import styles from "./Container.module.css";
-import WinnerText from "../WinnerText/WinnerText";
+import WinnerProvider from "../../../context/snail/winnerContext";
+import SnailRow from "../snailRow/snailRow";
+import styles from "./container.module.css";
+import WinnerText from "../winnerText/winnerText";
 
 export default function Container() {
   const raceNum = 3;

@@ -1,31 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './app';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Gamble from './pages/gamble/gamble';
-import Home from './pages/home/home';
-import NotFound from './pages/notFound/notFound';
-import ProtectedRoute from './pages/ProtectedRoute';
-import Gambles from './pages/gambles/gambles';
-import HomeRoute from './pages/HomeRoute';
-import UserMake from './pages/userMake/userMake';
-import UserMakeRoute from './pages/userMakeRoute';
-import Snail from './pages/gambles/snail/snail';
-import Sniffling from './pages/gambles/sniffling/sniffling';
-import Roulette from './pages/gambles/roulette/roulette';
-import Graph from './pages/gambles/graph/graph';
-import SwordReinforce from './pages/gambles/swordReinforce/swordReinforce';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./app";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Gamble from "./pages/gamble/gamble";
+import Home from "./pages/home/home";
+import NotFound from "./pages/notFound/notFound";
+import ProtectedRoute from "./pages/ProtectedRoute";
+import Gambles from "./pages/gambles/gambles";
+import HomeRoute from "./pages/HomeRoute";
+import UserMake from "./pages/userMake/userMake";
+import UserMakeRoute from "./pages/userMakeRoute";
+import Snail from "./pages/gambles/snail/snail";
+import Sniffling from "./pages/gambles/sniffling/sniffling";
+import Roulette from "./pages/gambles/roulette/roulette";
+import Graph from "./pages/gambles/graph/graph";
+import SwordReinforce from "./pages/gambles/swordReinforce/swordReinforce";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     errorElement: <NotFound />,
     children: [
       {
         index: true,
-        path: '/',
+        path: "/",
         element: (
           <HomeRoute>
             <Home />
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/usermake',
+        path: "/usermake",
         element: (
           <ProtectedRoute isUserMake>
             <UserMakeRoute>
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/gamble',
+        path: "/gamble",
         element: (
           <ProtectedRoute>
             <Gamble />
@@ -55,23 +55,23 @@ const router = createBrowserRouter([
             element: <Gambles />,
           },
           {
-            path: 'snail',
+            path: "snail",
             element: <Snail />,
           },
           {
-            path: 'sniffling',
+            path: "sniffling",
             element: <Sniffling />,
           },
           {
-            path: 'roulette',
+            path: "roulette",
             element: <Roulette />,
           },
           {
-            path: 'graph',
+            path: "graph",
             element: <Graph />,
           },
           {
-            path: 'swordReinforce',
+            path: "swordReinforce",
             element: <SwordReinforce />,
           },
         ],
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
