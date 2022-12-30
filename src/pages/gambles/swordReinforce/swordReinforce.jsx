@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { reinforceSword } from '../../../data/swordReinforce/logic';
 import {
   swordReinforcePriceArr,
   swordSellPriceArr,
@@ -9,17 +10,7 @@ import styles from './swordReinforce.module.css';
 export default function SwordReinforce() {
   const [sword, setSword] = useState({ level: 1, isDestroyed: false });
   const [money, setMoney] = useState(10000);
-  const reinforceSword = (sword) => {
-    if (!sword.isDestroyed) {
-      if (Math.random() * 100 < 100 - 5 * sword.level) {
-        return { ...sword, level: sword.level + 1 };
-      } else {
-        return { ...sword, isDestroyed: true };
-      }
-    } else {
-      return sword;
-    }
-  };
+
   const handelClick = () => {
     if (money >= swordReinforcePriceArr[sword.level - 1]) {
       setMoney(money - swordReinforcePriceArr[sword.level - 1]);
@@ -30,9 +21,9 @@ export default function SwordReinforce() {
     setSword({ level: 1, isDestroyed: false });
   };
   const handleSell = () => {
-    if (!sword.isDestroyed) {
+    if (!sword.isDestroyed && sword.level != 0) {
       setMoney(money + swordSellPriceArr[sword.level - 1]);
-      setSword({ level: 1, isDestroyed: false });
+      handleRetry();
     }
   };
   return (
