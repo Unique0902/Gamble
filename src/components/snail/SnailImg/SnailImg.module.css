@@ -1,0 +1,6 @@
+.snail {
+  height: 100%;
+  transition: all 1.5s;
+  position: relative;
+  left: 0;
+}
