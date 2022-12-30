@@ -26,6 +26,7 @@ export default function Gambles() {
           <Game img={'sniffling'} text={'홀짝'} />
           <Game img={'graph'} text={'그래프 게임'} />
           <Game img={'roulette'} text={'룰렛 게임'} />
+          <Game img={'swordReinforce'} text={'검 강화 게임'} />
         </ul>
       </section>
     </DesignWrapper>

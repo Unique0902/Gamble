@@ -15,6 +15,7 @@ import Snail from './pages/gambles/snail/snail';
 import Sniffling from './pages/gambles/sniffling/sniffling';
 import Roulette from './pages/gambles/roulette/roulette';
 import Graph from './pages/gambles/graph/graph';
+import SwordReinforce from './pages/gambles/swordReinforce/swordReinforce';
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
           {
             path: 'graph',
             element: <Graph />,
+          },
+          {
+            path: 'swordReinforce',
+            element: <SwordReinforce />,
           },
         ],
       },
