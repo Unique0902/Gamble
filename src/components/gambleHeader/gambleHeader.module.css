@@ -6,12 +6,19 @@
   align-items: center;
 }
 .gamble {
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 600;
   color: white;
+  transition: all 200ms ease;
+}
+.gamble:hover {
+  transform: scale(1.1);
 }
 .titleText {
   color: #f9f871;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.4rem;
+}
+.selected {
+  color: #a3cfcd;
 }
