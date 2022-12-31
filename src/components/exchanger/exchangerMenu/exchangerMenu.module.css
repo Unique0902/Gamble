@@ -1,0 +1,37 @@
+.formDiv {
+  display: flex;
+  flex-direction: row;
+}
+.form {
+  display: flex;
+  flex-direction: row;
+}
+.text {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.btn {
+  padding: 0.4em 0.6em;
+  border-radius: 1em;
+  background-color: #00c9c8;
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  translate: ease 200ms all;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+.formBtn {
+  padding: 0.2em 0.4em;
+  background-color: #00c9c8;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  margin: 0 0.2em;
+  border-radius: 0.4em;
+  translate: ease 200ms all;
+}
+.formBtn:hover {
+  transform: scale(1.1);
+}

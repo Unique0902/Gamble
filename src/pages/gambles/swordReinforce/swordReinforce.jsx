@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import Exchanger from '../../../components/exchanger/exchanger';
 import { reinforceSword } from '../../../data/swordReinforce/logic';
 import {
   swordReinforcePriceArr,
@@ -28,6 +29,7 @@ export default function SwordReinforce() {
   };
   return (
     <section className={styles.wrapper}>
+      <Exchanger money={money} game={'swordReinforce'} />
       <section className={styles.inform}>
         <span className={styles.text}>{`현재: ${sword.level}성 `}</span>
         <span className={styles.text}>{`검이름: 지리는검 `}</span>

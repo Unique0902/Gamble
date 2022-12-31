@@ -10,9 +10,17 @@
   font-weight: 600;
   color: white;
   transition: all 200ms ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .gamble:hover {
   transform: scale(1.1);
+}
+.title {
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 .titleText {
   color: #f9f871;
@@ -21,4 +29,8 @@
 }
 .selected {
   color: #a3cfcd;
+}
+.icon {
+  font-size: 3rem;
+  color: #f9f871;
 }

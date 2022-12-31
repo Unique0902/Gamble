@@ -4,6 +4,7 @@
   height: 90%;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .main {
   display: flex;

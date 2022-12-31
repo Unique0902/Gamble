@@ -1,0 +1,19 @@
+.wrapper {
+  position: absolute;
+  right: 4em;
+  top: 2em;
+}
+.btn {
+  background-color: #00c9c8;
+  color: white;
+  padding: 0.4em 1em;
+  border-radius: 2em;
+  font-size: 1.4rem;
+  translate: ease 200ms all;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
