@@ -7,8 +7,12 @@ import { useUserDataContext } from '../../context/UserDataContext';
 
 export default function Gambles() {
   const { logout } = useAuthContext();
-  const { money } = useUserDataContext();
+  const { money, removeUserData } = useUserDataContext();
   const handleClick = () => {
+    logout();
+  };
+  const handleRemove = () => {
+    removeUserData();
     logout();
   };
   return (
@@ -17,9 +21,14 @@ export default function Gambles() {
         <nav className={styles.nav}>
           <h1 className={styles.title}>Gambles List</h1>
           <h3 className={styles.money}>{`현재금액: ${money}원`}</h3>
-          <button className={styles.btn} onClick={handleClick}>
-            로그아웃
-          </button>
+          <div className={styles.btnSec}>
+            <button className={styles.btn} onClick={handleClick}>
+              로그아웃
+            </button>
+            <button className={styles.btn} onClick={handleRemove}>
+              탈퇴하기
+            </button>
+          </div>
         </nav>
         <ul className={styles.games}>
           <Game img={'snail'} text={'달팽이 게임'} />

@@ -1,44 +1,29 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import {
-  getUserData,
-  makeNewUser,
-  removeUserData,
-  updateUserData,
-  BASIC_MONEY,
-} from '../api/firebase';
-import { useAuthContext } from './AuthContext';
+import { useEffect } from 'react';
+import { createContext, useContext } from 'react';
+import useUserData from '../hooks/useUserData';
 
 const UserDataContext = createContext();
 
 export function UserDataContextProvider({ children }) {
-  const [userData, setUserData] = useState();
-  const { uid } = useAuthContext();
-
-  const removeUser = () => {
-    removeUserData(uid);
-    setUserData(null);
-  };
-  const updateUser = (userData) => {
-    updateUserData(uid, userData);
-    setUserData(userData);
-  };
-  const makeUserData = (name) => {
-    makeNewUser(uid, name);
-    setUserData({ uid, name, money: BASIC_MONEY });
-  };
-  useEffect(() => {
-    if (uid) {
-      getUserData(uid).then((userData) => setUserData(userData));
-    }
-  }, [uid]);
-
+  const {
+    userDataQuery: { data: userData },
+    makeUserData,
+    addOrUpdateUserData,
+    removeUserData,
+  } = useUserData();
+  // useEffect(() => {
+  //   console.log(userData);
+  // }, [userData]);
+  const removeUser = () => removeUserData.mutate();
+  const updateUser = (userData) => addOrUpdateUserData.mutate(userData);
+  const makeUser = (name) => makeUserData.mutate(name);
   return (
     <UserDataContext.Provider
       value={{
         userData,
         removeUserData: removeUser,
         updateUserData: updateUser,
-        makeUserData,
+        makeUserData: makeUser,
         money: userData && userData.money,
       }}
     >

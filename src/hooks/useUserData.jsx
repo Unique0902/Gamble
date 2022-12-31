@@ -1,5 +1,10 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { updateUserData, getUserData, removeUserData } from '../api/firebase';
+import {
+  updateUserData,
+  getUserData,
+  removeUserData,
+  makeNewUser,
+} from '../api/firebase';
 import { useAuthContext } from '../context/AuthContext';
 
 export default function useUserData() {
@@ -13,7 +18,11 @@ export default function useUserData() {
       enabled: !!uid,
     }
   );
-
+  const makeUserData = useMutation((name) => makeNewUser(uid, name), {
+    onSuccess: () => {
+      queryClient.invalidateQueries(['userDatas', uid]);
+    },
+  });
   const addOrUpdateUserData = useMutation(
     (userData) => updateUserData(uid, userData),
     {
@@ -23,11 +32,16 @@ export default function useUserData() {
     }
   );
 
-  const removeUser = useMutation((id) => removeUserData(uid, id), {
+  const removeUser = useMutation(() => removeUserData(uid), {
     onSuccess: () => {
       queryClient.invalidateQueries(['userDatas', uid]);
     },
   });
 
-  return { userDataQuery, addOrUpdateUserData, removeUser };
+  return {
+    userDataQuery,
+    makeUserData,
+    addOrUpdateUserData,
+    removeUserData: removeUser,
+  };
 }
