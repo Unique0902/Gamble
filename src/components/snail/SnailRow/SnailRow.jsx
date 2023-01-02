@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import SnailImg from '../SnailImg/SnailImg';
+import SnailImg from '../snailImg/snailImg';
 import styles from './SnailRow.module.css';
 import { useState, useRef, useEffect } from 'react';
 import { WinnerContext } from '../../../context/snail/WinnerContext';

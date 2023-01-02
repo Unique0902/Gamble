@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../../../components/snail/Container/Container';
+import Container from '../../../components/snail/container/container';
 import WinnerProvider from '../../../context/snail/WinnerContext';
 import styles from './Snail.module.css';
 
