@@ -3,4 +3,5 @@
   transition: all 1.5s;
   position: relative;
   left: 0;
+  cursor: pointer;
 }
