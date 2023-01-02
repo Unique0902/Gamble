@@ -10,4 +10,6 @@ const reinforceSword = (sword) => {
   }
 };
 
-export { reinforceSword };
+const BASIC_SWORD = { level: 1, isDestroyed: false };
+
+export { reinforceSword, BASIC_SWORD };
