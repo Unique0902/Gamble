@@ -1,6 +1,6 @@
-import React from "react";
-import { useContext } from "react";
-import { WinnerContext } from "../../../context/snail/WinnerContext";
+import React from 'react';
+import { useContext } from 'react';
+import { WinnerContext } from '../../../context/snail/WinnerContext';
 
 export default function Text({ text }) {
   const { winner } = useContext(WinnerContext);
