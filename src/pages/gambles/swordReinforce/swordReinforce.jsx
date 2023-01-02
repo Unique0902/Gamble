@@ -57,13 +57,13 @@ export default function SwordReinforce() {
   return (
     <section className={styles.wrapper}>
       <Exchanger money={money} game={'swordReinforce'} />
-      {sword && (
-        <section className={styles.inform}>
-          <span className={styles.text}>{`현재: ${sword.level}성 `}</span>
-          <span className={styles.text}>{`검이름: 지리는검 `}</span>
-          <span className={styles.text}>{`소지금액: ${money}원`}</span>
-        </section>
-      )}
+      <section className={styles.inform}>
+        <span className={styles.text}>{`현재: ${
+          sword ? sword.level : ''
+        }성 `}</span>
+        <span className={styles.text}>{`검이름: 지리는검 `}</span>
+        <span className={styles.text}>{`소지금액: ${money}원`}</span>
+      </section>
       {sword && (
         <section className={styles.main}>
           {sword.isDestroyed ? (

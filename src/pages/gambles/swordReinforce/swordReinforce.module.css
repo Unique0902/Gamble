@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  gap: 0.4em;
 }
 .main {
   display: flex;
@@ -13,6 +14,7 @@
 .inform {
   background-color: white;
   padding: 1em;
+  border-radius: 1em;
 }
 .img {
   width: 20em;
@@ -37,6 +39,11 @@
   background-color: white;
   border-radius: 1em;
   padding: 1em;
+  gap: 0.4em;
+}
+.text {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 .btn {
   border-radius: 2em;
@@ -44,4 +51,9 @@
   color: white;
   font-size: 1.5rem;
   padding: 0.2em 0.5em;
+  margin-top: 0.6em;
+  transition: ease 200ms all;
+}
+.btn:hover {
+  transform: scale(1.1);
 }
