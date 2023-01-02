@@ -31,7 +31,6 @@ export default function SnailRow({ index }) {
       seetSnailLenToggle((prev) => !prev);
       if (snailXRef.current >= maxDistance) {
         const audioNum = Math.floor(Math.random() * audios.length);
-        audios[audioNum].play();
         clearInterval(timer);
         setSnailX(maxDistance);
         seetSnailLenToggle(true);
