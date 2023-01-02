@@ -8,10 +8,17 @@ export default function ExchangerMenu({ setIsShowMenu, gameMoney, game }) {
   const [isShowExchangeToMoney, setIsShowExchangeToMoney] = useState(false);
   const [isShowExchangeToGameMoney, setIsShowExchangeToGameMoney] =
     useState(false);
-  const { money } = useUserDataContext();
+  const { money, updateMoney } = useUserDataContext();
   const [inputMoney, setInputMoney] = useState(0);
   const [inputGameMoney, setInputGameMoney] = useState(0);
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === 'money') {
+      setInputMoney(value);
+    } else if (name === 'gameMoney') {
+      setInputGameMoney(value);
+    }
+  };
   const handleClickExchangeToMoney = () => {
     setIsShowExchangeToMoney(true);
   };
@@ -26,6 +33,7 @@ export default function ExchangerMenu({ setIsShowMenu, gameMoney, game }) {
   };
   const handleSubmitExchangeToMoney = (e) => {
     e.preventDefault();
+    updateMoney(inputMoney);
   };
   const handleSubmitExchangeToGameMoney = (e) => {
     e.preventDefault();
@@ -46,7 +54,12 @@ export default function ExchangerMenu({ setIsShowMenu, gameMoney, game }) {
       {isShowExchangeToMoney && (
         <div className={styles.formDiv}>
           <form onSubmit={handleSubmitExchangeToMoney} className={styles.form}>
-            <input type='number' />
+            <input
+              type='number'
+              value={inputMoney}
+              name='money'
+              onChange={handleChange}
+            />
             <button className={styles.formBtn}>변환</button>
           </form>
           <button
@@ -66,7 +79,12 @@ export default function ExchangerMenu({ setIsShowMenu, gameMoney, game }) {
             onSubmit={handleSubmitExchangeToGameMoney}
             className={styles.form}
           >
-            <input type='number' />
+            <input
+              type='number'
+              name='gameMoney'
+              value={inputGameMoney}
+              onChange={handleChange}
+            />
             <button className={styles.formBtn}>변환</button>
           </form>
           <button
