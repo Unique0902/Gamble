@@ -56,7 +56,7 @@ export default function SwordReinforce() {
   };
   return (
     <section className={styles.wrapper}>
-      <Exchanger money={money} game={'swordReinforce'} />
+      <Exchanger money={money} gamePer={5} updateGameMoney={updateMoney} />
       <section className={styles.inform}>
         <span className={styles.text}>{`현재: ${
           sword ? sword.level : ''

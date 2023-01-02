@@ -4,7 +4,12 @@ import { useUserDataContext } from '../../../context/UserDataContext';
 import PopupWrapper from '../../popupWrapper/popupWrapper';
 import styles from './exchangerMenu.module.css';
 
-export default function ExchangerMenu({ setIsShowMenu, gameMoney, game }) {
+export default function ExchangerMenu({
+  setIsShowMenu,
+  gameMoney,
+  updateGameMoney,
+  gamePer,
+}) {
   const [isShowExchangeToMoney, setIsShowExchangeToMoney] = useState(false);
   const [isShowExchangeToGameMoney, setIsShowExchangeToGameMoney] =
     useState(false);
@@ -33,10 +38,25 @@ export default function ExchangerMenu({ setIsShowMenu, gameMoney, game }) {
   };
   const handleSubmitExchangeToMoney = (e) => {
     e.preventDefault();
-    updateMoney(inputMoney);
+    if (inputGameMoney % 1000 || inputGameMoney < 1000) {
+      alert('1000단위로 입력해주세요');
+    } else if (inputGameMoney > gameMoney) {
+      alert('소유하신 게임머니를 초과하는 금액입니다!');
+    } else {
+      updateMoney(parseInt(inputGameMoney / gamePer));
+      updateGameMoney(gameMoney - inputGameMoney);
+    }
   };
   const handleSubmitExchangeToGameMoney = (e) => {
     e.preventDefault();
+    if (inputMoney % 1000 || inputMoney < 1000) {
+      alert('1000단위로 입력해주세요');
+    } else if (inputMoney > money) {
+      alert('소유하신 재산을 초과하는 금액입니다!');
+    } else {
+      updateGameMoney(parseInt(inputMoney * gamePer));
+      updateMoney(money - inputMoney);
+    }
   };
   return (
     <PopupWrapper
@@ -45,19 +65,19 @@ export default function ExchangerMenu({ setIsShowMenu, gameMoney, game }) {
       }}
       isLeft={false}
     >
-      <p className={styles.text}>{`보유재산 ${money}원`}</p>
-      <p className={styles.text}>{`보유게임머니 ${gameMoney}원`}</p>
-      <p className={styles.text}>{`비율: 5:1`}</p>
+      <p className={styles.text}>{`재산 ${money}원`}</p>
+      <p className={styles.text}>{`게임머니 ${gameMoney}원`}</p>
+      <p className={styles.text}>{`비율: ${gamePer}:1`}</p>
       <button className={styles.btn} onClick={handleClickExchangeToMoney}>
-        재산으로 변환 (1000단위로)
+        게임머니 {'=>'} 재산 (10000단위로)
       </button>
       {isShowExchangeToMoney && (
         <div className={styles.formDiv}>
           <form onSubmit={handleSubmitExchangeToMoney} className={styles.form}>
             <input
               type='number'
-              value={inputMoney}
-              name='money'
+              value={inputGameMoney}
+              name='gameMoney'
               onChange={handleChange}
             />
             <button className={styles.formBtn}>변환</button>
@@ -71,7 +91,7 @@ export default function ExchangerMenu({ setIsShowMenu, gameMoney, game }) {
         </div>
       )}
       <button className={styles.btn} onClick={handleClickExchangeToGameMoney}>
-        게임머니로 변환 (1000단위)
+        재산 {'=>'} 게임머니 (1000단위)
       </button>
       {isShowExchangeToGameMoney && (
         <div className={styles.formDiv}>
@@ -81,8 +101,8 @@ export default function ExchangerMenu({ setIsShowMenu, gameMoney, game }) {
           >
             <input
               type='number'
-              name='gameMoney'
-              value={inputGameMoney}
+              name='money'
+              value={inputMoney}
               onChange={handleChange}
             />
             <button className={styles.formBtn}>변환</button>

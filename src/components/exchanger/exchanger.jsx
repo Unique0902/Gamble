@@ -4,7 +4,7 @@ import ExchangerMenu from './exchangerMenu/exchangerMenu';
 import styles from './exchanger.module.css';
 import { GiReceiveMoney } from 'react-icons/gi';
 
-export default function Exchanger({ money, game }) {
+export default function Exchanger({ money, updateGameMoney, gamePer }) {
   const [isShowMenu, setIsShowMenu] = useState(false);
   return (
     <div className={styles.wrapper}>
@@ -21,7 +21,8 @@ export default function Exchanger({ money, game }) {
         <ExchangerMenu
           setIsShowMenu={setIsShowMenu}
           gameMoney={money}
-          game={game}
+          updateGameMoney={updateGameMoney}
+          gamePer={gamePer}
         />
       )}
     </div>
