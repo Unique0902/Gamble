@@ -15,7 +15,9 @@ export function UserDataContextProvider({ children }) {
   //   console.log(userData);
   // }, [userData]);
   const removeUser = () => removeUserData.mutate();
-  const updateUser = (userData) => addOrUpdateUserData.mutate(userData);
+  const updateUser = (newUserData) => addOrUpdateUserData.mutate(newUserData);
+  const updateMoney = (money) =>
+    addOrUpdateUserData.mutate({ ...userData, money });
   const makeUser = (name) => makeUserData.mutate(name);
   return (
     <UserDataContext.Provider
@@ -24,6 +26,7 @@ export function UserDataContextProvider({ children }) {
         removeUserData: removeUser,
         updateUserData: updateUser,
         makeUserData: makeUser,
+        updateMoney,
         money: userData && userData.money,
       }}
     >
