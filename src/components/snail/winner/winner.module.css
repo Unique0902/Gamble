@@ -1,0 +1,22 @@
+.frame {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  border-radius: 10%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+}
+
+.winner_frame {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.icon {
+  height: 80%;
+  display: block;
+  margin: auto;
+}

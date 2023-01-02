@@ -1,9 +1,9 @@
-import React from 'react';
-import { useContext } from 'react';
-import { WinnerContext } from '../../../context/snail/WinnerContext';
+import React from "react";
+import { useContext } from "react";
+import { useWinnerContext } from "../../../context/snail/WinnerContext";
 
 export default function Text({ text }) {
-  const { winner } = useContext(WinnerContext);
+  const { winner } = useWinnerContext();
   return (
     <>
       {winner.map((item, index) => (
