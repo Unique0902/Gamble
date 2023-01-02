@@ -1,9 +1,11 @@
-import React from 'react';
-import styles from './SnailImg.module.css';
+import React from "react";
+import styles from "./snailImg.module.css";
 
-export default function SnailImg({ x, len, choice, index }) {
+export default function SnailImg({ x, len, choice, index, isStart }) {
   const handleClick = () => {
-    choice(index);
+    if (!isStart) {
+      choice(index);
+    }
   };
   return (
     <>
@@ -11,8 +13,8 @@ export default function SnailImg({ x, len, choice, index }) {
         onClick={handleClick}
         style={{ left: x, width: len ? `100px` : `70px` }}
         className={styles.snail}
-        src='/images/snail/snail-icon.png'
-        alt='snail'
+        src="/images/snail/snail-icon.png"
+        alt="snail"
       ></img>
     </>
   );
