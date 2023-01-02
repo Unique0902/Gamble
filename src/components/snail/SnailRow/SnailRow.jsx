@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import SnailImg from "../snailImg/snailImg";
-import styles from "./snailRow.module.css";
-import { useState, useRef, useEffect } from "react";
-import { WinnerContext } from "../../../context/snail/winnerContext";
-import c1 from "../../../assets/audio/snail/c1.mp3";
-import c2 from "../../../assets/audio/snail/c2.mp3";
-import c3 from "../../../assets/audio/snail/c3.mp3";
+import React, { useContext } from 'react';
+import SnailImg from '../SnailImg/SnailImg';
+import styles from './SnailRow.module.css';
+import { useState, useRef, useEffect } from 'react';
+import { WinnerContext } from '../../../context/snail/WinnerContext';
+import c1 from '../../../assets/audio/snail/c1.mp3';
+import c2 from '../../../assets/audio/snail/c2.mp3';
+import c3 from '../../../assets/audio/snail/c3.mp3';
 
 export default function SnailRow({ index, choice, x }) {
   const [snailX, setSnailX] = useState(0);
@@ -44,7 +44,12 @@ export default function SnailRow({ index, choice, x }) {
   }, [index, setWinner]);
   return (
     <div className={styles.race}>
-      <SnailImg x={snailX} len={snailLenToggle} choice={choice} index={index}></SnailImg>
+      <SnailImg
+        x={snailX}
+        len={snailLenToggle}
+        choice={choice}
+        index={index}
+      ></SnailImg>
     </div>
   );
 }
