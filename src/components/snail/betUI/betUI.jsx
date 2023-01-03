@@ -1,7 +1,20 @@
 import React from "react";
 import styles from "./betUI.module.css";
 
-export default function BetUI({ handleBet, inputAmount, handleInput, handleKeyDown, isAvailable, setInputAmount, handleCancel }) {
+export default function BetUI({
+  handleBet,
+  inputAmount,
+  handleInput,
+  handleKeyDown,
+  isAvailable,
+  setInputAmount,
+  handleCancel,
+  isBet,
+  betAmount,
+  isFinish,
+  isUserWin,
+  winAmountRef,
+}) {
   const moneyList = [100, 1000, 5000, 10000, 50000, 100000];
   const handleClick = (e, money) => {
     if (inputAmount === undefined) setInputAmount(0);
@@ -9,6 +22,10 @@ export default function BetUI({ handleBet, inputAmount, handleInput, handleKeyDo
   };
   return (
     <div className={styles.container}>
+      <div className={styles.msg_wrapper}>
+        <p>{isBet ? `${betAmount}원 배팅` : "인생을 배팅하세요"}</p>
+        {isBet && isFinish ? <p>{isUserWin ? `적중! +${winAmountRef.current}원!` : "아쉽지만 다음 기회에"}</p> : ""}
+      </div>
       {moneyList.map((money) => (
         <button className={styles.money_button} key={money} onClick={(e) => handleClick(e, money)}>{`+${money}`}</button>
       ))}
