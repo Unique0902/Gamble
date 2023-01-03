@@ -53,6 +53,7 @@ export default function Container() {
       if (userChoice === 3) {
         alert("달팽이를 클릭하여 달팽이를 선택하세요.");
       } else {
+        setIsBet(false);
         setIsBet(true);
         setBetAmount(inputAmount);
       }
@@ -92,7 +93,7 @@ export default function Container() {
         } else setIsUserWin(false);
       }
     }
-  }, [winner]);
+  }, [winner, betAmount, isBet, money, updateMoney, userChoice]);
 
   useEffect(() => {
     let timer;
@@ -114,7 +115,7 @@ export default function Container() {
     return () => {
       clearInterval(timer);
     };
-  }, [isFinish]);
+  }, [isFinish, isBefore]);
 
   useEffect(() => {
     if (inputAmount > money) {
@@ -122,7 +123,7 @@ export default function Container() {
     } else {
       setIsAvailable(true);
     }
-  }, [inputAmount]);
+  }, [inputAmount, money]);
 
   return (
     <div className={styles.container}>
@@ -143,8 +144,6 @@ export default function Container() {
 
       <SelectInfo userChoice={userChoice}></SelectInfo>
 
-      <p>{isBet ? `${betAmount}원 배팅하셨습니다.` : "인생을 배팅하세요"}</p>
-      {isBet && isFinish ? <p>{isUserWin ? `적중! +${winAmountRef.current}원!` : "아쉽지만 다음 기회에"}</p> : ""}
       <BetUI
         handleBet={handleBet}
         handleInput={handleInput}
@@ -153,6 +152,11 @@ export default function Container() {
         isAvailable={isAvailable}
         setInputAmount={setInputAmount}
         handleCancel={handleCancel}
+        isBet={isBet}
+        betAmount={betAmount}
+        isFinish={isFinish}
+        isUserWin={isUserWin}
+        winAmountRef={winAmountRef}
       ></BetUI>
     </div>
   );
