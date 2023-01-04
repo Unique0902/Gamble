@@ -1,0 +1,19 @@
+.button {
+  position: relative;
+  height: 100%;
+}
+.btnList {
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+}
+.text {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+}

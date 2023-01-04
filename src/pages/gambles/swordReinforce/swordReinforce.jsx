@@ -17,7 +17,7 @@ export default function SwordReinforce() {
   const [money, setMoney] = useState();
   useEffect(() => {
     if (localStorage.getItem('swordGameMoney')) {
-      setMoney(localStorage.getItem('swordGameMoney'));
+      setMoney(parseInt(localStorage.getItem('swordGameMoney')));
     } else {
       localStorage.setItem('swordGameMoney', 50000);
       setMoney(50000);
@@ -50,6 +50,8 @@ export default function SwordReinforce() {
   };
   const handleSell = () => {
     if (!sword.isDestroyed && sword.level != 0) {
+      console.log(parseInt(money));
+      console.log(swordSellPriceArr[sword.level - 1]);
       updateMoney(money + swordSellPriceArr[sword.level - 1]);
       handleRetry();
     }

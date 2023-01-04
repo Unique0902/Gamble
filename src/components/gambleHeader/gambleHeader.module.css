@@ -1,26 +1,52 @@
 .header {
-  height: 10%;
-  background-color: #b87c4c;
+  height: 10vh;
+  background-color: #7f4d3e;
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
 .gamble {
   font-size: 1.5rem;
   font-weight: 600;
-  color: white;
+  color: black;
   transition: all 200ms ease;
   display: flex;
   align-items: center;
   gap: 0.4em;
+  padding: 0.8em 1.4em;
+}
+.inform {
+  padding: 0.8em 1.4em;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black;
+  transition: all 200ms ease;
+  display: flex;
+  align-items: center;
+}
+.btn {
+  padding: 0.8em 1.4em;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black;
+  transition: all 200ms ease;
+  display: flex;
+  align-items: center;
+}
+.red {
+  color: red;
+}
+.btn:hover {
+  background-color: lightgray;
 }
 .gamble:hover {
-  transform: scale(1.1);
+  background-color: lightgray;
 }
 .title {
   display: flex;
   align-items: center;
   gap: 1em;
+  margin-left: 3em;
+  height: 100%;
 }
 .titleText {
   color: #f9f871;
@@ -33,4 +59,11 @@
 .icon {
   font-size: 3rem;
   color: #f9f871;
+}
+.nav {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

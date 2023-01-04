@@ -23,5 +23,4 @@ for (let i = 2; i < 20; i++) {
     swordSellPriceArr.push(Math.floor(500 * 2 ** (i + 1) * 10));
   }
 }
-
 export { swordReinforcePriceArr, swordSellPriceArr };

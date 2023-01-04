@@ -43,7 +43,7 @@ export default function ExchangerMenu({
     } else if (inputGameMoney > gameMoney) {
       alert('소유하신 게임머니를 초과하는 금액입니다!');
     } else {
-      updateMoney(parseInt(inputGameMoney / gamePer));
+      updateMoney(money + parseInt(inputGameMoney / gamePer));
       updateGameMoney(gameMoney - inputGameMoney);
     }
   };
@@ -54,7 +54,7 @@ export default function ExchangerMenu({
     } else if (inputMoney > money) {
       alert('소유하신 재산을 초과하는 금액입니다!');
     } else {
-      updateGameMoney(parseInt(inputMoney * gamePer));
+      updateGameMoney(gameMoney + parseInt(inputMoney * gamePer));
       updateMoney(money - inputMoney);
     }
   };
