@@ -48,6 +48,7 @@ export default function Container() {
       setUserChoice(3);
       setIsBet(false);
       setBetAmount(0);
+      setInputAmount(0);
       setWinner([]);
     }
   };
