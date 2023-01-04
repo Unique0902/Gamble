@@ -32,71 +32,66 @@ export default function GambleHeader() {
     return name === selectedBtn && styles.selected;
   };
   return (
-    <DesignWrapper isTwo={false}>
-      <header className={styles.header}>
-        <Link to={'/'} className={styles.title}>
-          <FaGamepad className={styles.icon} />
-          <span className={styles.titleText}>Gamble</span>
-        </Link>
-        <nav className={styles.nav}>
-          <HoverBtn text={'Gambles'} handleClick={() => {}}>
-            <Link
-              to='snail'
-              className={`${styles.gamble} ${selectedStyle('snail')}`}
-            >
-              <GiSnail />
-              달팽이
-            </Link>
-            <Link
-              to='sniffling'
-              className={`${styles.gamble} ${selectedStyle('sniffling')}`}
-            >
-              <FaDiceSix />
-              홀짝
-            </Link>
-            <Link
-              to='graph'
-              className={`${styles.gamble} ${selectedStyle('graph')}`}
-            >
-              <BsGraphUp />
-              그래프
-            </Link>
-            <Link
-              to='roulette'
-              className={`${styles.gamble} ${selectedStyle('roulette')}`}
-            >
-              <GiCartwheel />
-              룰렛
-            </Link>
-            <Link
-              to='swordReinforce'
-              className={`${styles.gamble} ${selectedStyle('swordReinforce')}`}
-            >
-              <GiBroadsword />
-              검강화
-            </Link>
-          </HoverBtn>
-          <HoverBtn text={'Ranking'} handleClick={() => {}}>
-            <li className={styles.btn}>재산 랭킹</li>
-            <li className={styles.btn}>달팽이 랭킹</li>
-          </HoverBtn>
-          <HoverBtn text={'Money'} handleClick={() => {}}>
-            <li className={styles.inform}>재산: {money}</li>
-            <li className={styles.btn}>재산 내역</li>
-          </HoverBtn>
-          <HoverBtn text={'User'} handleClick={() => {}}>
-            <li className={styles.btn} onClick={handleClick}>
-              로그아웃
-            </li>
-            <li
-              className={`${styles.btn} ${styles.red}`}
-              onClick={handleRemove}
-            >
-              탈퇴하기
-            </li>
-          </HoverBtn>
-        </nav>
-      </header>
-    </DesignWrapper>
+    <header className={styles.header}>
+      <Link to={'/'} className={styles.title}>
+        <FaGamepad className={styles.icon} />
+        <span className={styles.titleText}>Gamble</span>
+      </Link>
+      <nav className={styles.nav}>
+        <HoverBtn text={'Gambles'} handleClick={() => {}}>
+          <Link
+            to='snail'
+            className={`${styles.gamble} ${selectedStyle('snail')}`}
+          >
+            <GiSnail />
+            달팽이
+          </Link>
+          <Link
+            to='sniffling'
+            className={`${styles.gamble} ${selectedStyle('sniffling')}`}
+          >
+            <FaDiceSix />
+            홀짝
+          </Link>
+          <Link
+            to='graph'
+            className={`${styles.gamble} ${selectedStyle('graph')}`}
+          >
+            <BsGraphUp />
+            그래프
+          </Link>
+          <Link
+            to='roulette'
+            className={`${styles.gamble} ${selectedStyle('roulette')}`}
+          >
+            <GiCartwheel />
+            룰렛
+          </Link>
+          <Link
+            to='swordReinforce'
+            className={`${styles.gamble} ${selectedStyle('swordReinforce')}`}
+          >
+            <GiBroadsword />
+            검강화
+          </Link>
+        </HoverBtn>
+        <HoverBtn text={'Ranking'} handleClick={() => {}}>
+          <li className={styles.btn}>재산 랭킹</li>
+          <li className={styles.btn}>달팽이 랭킹</li>
+        </HoverBtn>
+        <HoverBtn text={'Money'} handleClick={() => {}}>
+          <li className={styles.inform}>재산: {money}</li>
+          <li className={styles.btn}>재산 내역</li>
+        </HoverBtn>
+        <HoverBtn text={'User'} handleClick={() => {}}>
+          <li className={styles.btn} onClick={handleClick}>
+            로그아웃
+          </li>
+          <li className={`${styles.btn} ${styles.red}`} onClick={handleRemove}>
+            탈퇴하기
+          </li>
+        </HoverBtn>
+      </nav>
+    </header>
   );
 }
