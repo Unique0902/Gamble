@@ -10,6 +10,7 @@ import {
   swordReinforcePriceArr,
   swordSellPriceArr,
 } from '../../../data/swordReinforce/price';
+import { swordNameArr } from '../../../data/swordReinforce/swordName';
 import styles from './swordReinforce.module.css';
 
 export default function SwordReinforce() {
@@ -50,8 +51,6 @@ export default function SwordReinforce() {
   };
   const handleSell = () => {
     if (!sword.isDestroyed && sword.level != 0) {
-      console.log(parseInt(money));
-      console.log(swordSellPriceArr[sword.level - 1]);
       updateMoney(money + swordSellPriceArr[sword.level - 1]);
       handleRetry();
     }
@@ -63,7 +62,9 @@ export default function SwordReinforce() {
         <span className={styles.text}>{`현재: ${
           sword ? sword.level : ''
         }성 `}</span>
-        <span className={styles.text}>{`검이름: 지리는검 `}</span>
+        <span className={styles.text}>{`검이름: ${
+          sword && swordNameArr[sword.level - 1]
+        } `}</span>
         <span className={styles.text}>{`소지금액: ${money}원`}</span>
       </section>
       {sword && (
@@ -74,7 +75,7 @@ export default function SwordReinforce() {
             </div>
           ) : (
             <img
-              src='/images/swordReinforce.png'
+              src={sword && `/images/swordReinforce/sword${sword.level}.jpg`}
               alt='sword'
               className={styles.img}
             />
