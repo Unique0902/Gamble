@@ -33,7 +33,7 @@ export default function Container() {
     setIsStart(true);
     setIsFinish(false);
     if (isBet) {
-      // 시작했을 때, 배팅한 상태면 돈 감소
+      // 시작했을 때 배팅한 상태면 돈 감소
       updateMoney(money - inputAmount);
     }
   };
@@ -93,7 +93,7 @@ export default function Container() {
         } else setIsUserWin(false);
       }
     }
-  }, [winner, betAmount, isBet, money, updateMoney, userChoice]);
+  }, [winner]);
 
   useEffect(() => {
     let timer;
@@ -123,7 +123,7 @@ export default function Container() {
     } else {
       setIsAvailable(true);
     }
-  }, [inputAmount, money]);
+  }, [inputAmount]);
 
   return (
     <div className={styles.container}>
