@@ -8,6 +8,7 @@ import { useUserDataContext } from "../../../context/UserDataContext";
 import { useEffect, useRef } from "react";
 import SelectInfo from "../selectInfo/selectInfo";
 import BetUI from "../betUI/betUI";
+import useInterval from "../../../hooks/useInterval";
 
 export default function Container() {
   const raceNum = 3;
@@ -17,7 +18,7 @@ export default function Container() {
   const [isStart, setIsStart] = useState(false);
   const [isFinish, setIsFinish] = useState(false);
   const [isBet, setIsBet] = useState(false);
-  const [inputAmount, setInputAmount] = useState();
+  const [inputAmount, setInputAmount] = useState(0);
   const [betAmount, setBetAmount] = useState(0);
   const winAmountRef = useRef(0);
   const [isAvailable, setIsAvailable] = useState(true);
@@ -32,8 +33,10 @@ export default function Container() {
     setIsBefore(false);
     setIsStart(true);
     setIsFinish(false);
+
     if (isBet) {
       // 시작했을 때 배팅한 상태면 돈 감소
+
       updateMoney(money - inputAmount);
     }
   };
@@ -62,7 +65,7 @@ export default function Container() {
 
   const handleCancel = () => {
     setIsBet(false);
-    setBetAmount(undefined);
+    setBetAmount(0);
     setUserChoice(3);
   };
 
@@ -95,27 +98,20 @@ export default function Container() {
     }
   }, [winner]);
 
-  useEffect(() => {
-    let timer;
+  useInterval(() => {
     if (isBefore || isFinish) {
-      timer = setInterval(() => {
-        startCountRef.current = startCountRef.current - 1;
-        setStartCount(startCountRef.current);
-        if (startCountRef.current === count - 2) {
-          handleInit();
-        }
-        if (startCountRef.current < 1) {
-          startCountRef.current = count;
-          clearInterval(timer);
-          handleStart();
-          return;
-        }
-      }, 1000);
+      startCountRef.current = startCountRef.current - 1;
+      setStartCount(startCountRef.current);
+      if (startCountRef.current === count - 2) {
+        handleInit();
+      }
+      if (startCountRef.current < 1) {
+        startCountRef.current = count;
+        handleStart();
+        return;
+      }
     }
-    return () => {
-      clearInterval(timer);
-    };
-  }, [isFinish, isBefore]);
+  }, 1000);
 
   useEffect(() => {
     if (inputAmount > money) {

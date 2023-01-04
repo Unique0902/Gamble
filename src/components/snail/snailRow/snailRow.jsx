@@ -26,14 +26,12 @@ export default function SnailRow({ index, choice, isStart, isFinish }) {
   useEffect(() => {
     let timer;
     if (isStart) {
-      console.log("ei");
       timer = setInterval(() => {
         const randomDistance = returnRandom(min, max);
         snailXRef.current = snailXRef.current + randomDistance;
         setSnailX(snailXRef.current);
         setSnailLenToggle((prev) => !prev);
         if (snailXRef.current >= maxDistance) {
-          const audioNum = Math.floor(Math.random() * audios.length);
           clearInterval(timer);
           setSnailX(maxDistance);
           setSnailLenToggle(true);
@@ -49,7 +47,7 @@ export default function SnailRow({ index, choice, isStart, isFinish }) {
     return () => {
       clearInterval(timer);
     };
-  }, [index, setWinner, isStart]);
+  }, [isStart]);
 
   return (
     <div className={styles.race}>

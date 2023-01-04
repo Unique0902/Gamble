@@ -17,7 +17,7 @@ export default function BetUI({
 }) {
   const moneyList = [100, 1000, 5000, 10000, 50000, 100000];
   const handleClick = (e, money) => {
-    if (inputAmount === undefined) setInputAmount(0);
+    if (inputAmount === 0) setInputAmount(0);
     setInputAmount((prev) => prev + money);
   };
   return (
